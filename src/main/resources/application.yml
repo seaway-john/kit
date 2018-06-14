@@ -1,0 +1,19 @@
+# Server
+server:
+  servlet:
+    context-path: /seaway-kit
+  port: 8080
+
+#  Mongo DB
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: kit
+
+# Thread pool
+kit:
+  threadpool:
+    corepoolsize: 128
+    maxpoolsize: 1024

@@ -1,0 +1,12 @@
+http://172.0.1.163:8080/seaway-kit/api/kit/room/list
+
+http://172.0.1.163:8080/seaway-kit/api/kit/ssc/latest
+
+
+curl -i -H "Content-Type: application/json" -X POST -d '[{"name":"Happy MaJiang","type":"majiang","maxMember":4}]' http://172.0.1.163:8080/seaway-kit/api/kit/room/add
+
+curl -i -H "Content-Type: application/json" -X POST -d '{"username":"seaway","password":"123456"}' http://172.0.1.163:8080/seaway-kit/user/register
+curl -i -H "Content-Type: application/json" -X POST -d '{"username":"seaway","password":"123456"}' http://172.0.1.163:8080/seaway-kit/login
+curl -i -H "Authorization: Bearer XXXXXX" http://172.0.1.163:8080/seaway-kit/user/refresh?username=seaway
+
+curl -i http://172.0.1.163:8080/seaway-kit/user/refresh?username=seaway

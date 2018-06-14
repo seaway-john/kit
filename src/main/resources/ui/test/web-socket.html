@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    </head>
+
+    <body>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/sockjs/1.0.1/sockjs.min.js"></script>
+    <script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+    <script type="text/javascript">
+        var stompClient = null;
+
+        function connect() {
+            var socket = new SockJS("https://139.199.226.107/seaway-kit/api/kit/web-socket");
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function (frame) {
+                console.log("Seaway Connected: " + frame);
+                stompClient.subscribe("/topic/broadcast", function (msg) {
+                    console.log(msg.body);
+                });
+
+                broadcast();
+            });
+        }
+
+        function disconnect() {
+            if (stompClient !== null) {
+                stompClient.disconnect();
+            }
+            console.log("Seaway Disconnected");
+        }
+
+        function broadcast() {
+            stompClient.send("/app/admin/send", {}, "I'm admin");
+        }
+
+        connect();
+    </script>
+</html>
