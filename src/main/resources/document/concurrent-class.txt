@@ -1,0 +1,31 @@
+CountDownLatch
+    会议室开会，所有人都来了才能开
+	final CountDownLatch latch = new CountDownLatch(10);
+	latch.countDown();
+	latch.await();
+
+
+CyclicBarrier
+    一组线程互相等待至某个状态，然后这一组线程再同时执行
+	CyclicBarrier barrier  = new CyclicBarrier(10);
+	cyclicBarrier.await();
+
+
+Semaphore
+	十个人用五台电脑
+	int people = 10;
+    Semaphore semaphore = new Semaphore(5);
+    semaphore.acquire();
+    semaphore.release();
+
+
+Phaser
+    动态增减任务数
+    Phaser phaser = new Phaser(10);
+    phaser.arriveAndAwaitAdvance();
+    phaser.arriveAndDeregister();
+
+
+https://www.cnblogs.com/uodut/p/6830939.html
+
+https://blog.csdn.net/u010093971/article/details/79358730

@@ -1,0 +1,18 @@
+
+// 微信 -> 微信开放平台
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd04e6d5e2c768b55&redirect_uri=http://www.shengyuncai.cn/game-app/api/wechat/agent/login&response_type=code&scope=snsapi_userinfo&state=612a7835954a4a3b#wechat_redirect
+
+// 微信授权，同意
+
+
+// 微信开放平台 -> 第三方，code为授权码
+http://www.shengyuncai.cn/game-app/api/wechat/agent/login?state=&code=
+
+// 第三方验证state是否合法
+
+
+// 第三方 -> 微信开放平台，code换取access_token
+https://api.weixin.qq.com/sns/oauth2/access_token?appid=&secret=&code&grant_type=authorization_code
+
+// 第三方 -> 微信开放平台，通过access_token获取用户信息
+https://api.weixin.qq.com/sns/userinfo?access_token=&openid=
